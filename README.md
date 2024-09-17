@@ -30,3 +30,31 @@ spring.datasource.url=jdbc:sqlserver://localhost:1433;databaseName=tarefas_db
 spring.datasource.username=seu-usuario
 spring.datasource.password=sua-senha
 spring.jpa.database-platform=org.hibernate.dialect.SQLServerDialect
+```
+
+## Executar a Aplicação
+
+mvn spring-boot:run
+
+## Endpoints Principais:
+
+### Listas de Tarefas
+-GET /tarefas - Retorna todas as listas de tarefas (com filtros opcionais por título).
+-POST /tarefas - Cria uma nova lista de tarefas.
+-PUT /tarefas/{id} - Atualiza uma lista de tarefas existente.
+-DELETE /tarefas/{id} - Remove uma lista de tarefas pelo ID.
+
+### Itens de Tarefas
+-GET /tarefas/{tarefaId}/itens - Retorna todos os itens de uma lista de tarefas (com filtros opcionais por título e estado).
+-POST /tarefas/{tarefaId}/itens - Adiciona um novo item à lista de tarefas.
+-PUT /tarefas/itens/{itemId} - Atualiza um item de uma lista.
+-DELETE /tarefas/itens/{itemId} - Remove um item de uma lista.
+
+## Testes Automatizados
+
+mvn test
+
+## Considerações Finais
+-Certifique-se de ajustar o banco de dados e credenciais de acordo com seu ambiente.
+-O cache foi configurado para melhorar a performance com Spring Cache.
+-Para personalizar as configurações da aplicação, edite os arquivos application.properties ou application.yml.
